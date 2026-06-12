@@ -1,2 +1,2 @@
-# 🏗️ TERRAFORM - Complete Documentation
+# <img src="https://cdn.simpleicons.org/terraform/7B42BC" width="40" height="40" />  TERRAFORM - Complete Documentation
 This documentation covers everything you need to know about Terraform. While it is mostly known for setting up cloud infrastructure, it is a powerful tool that automatically handles the creation, modification, and management of your digital resources. After reading this, you will fully understand how to use it to build and manage your infrastructure reliably and efficiently.
