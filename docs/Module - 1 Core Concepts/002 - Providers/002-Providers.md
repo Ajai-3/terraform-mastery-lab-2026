@@ -2,7 +2,7 @@
 
 ## Topics Covered
 - [1. What is a Terraform Provider?](#what-is-a-terraform-provider)
-- [Why Version Matters](#why-version-matters-and-why-cant-we-use-the-latest-terraform-version)
+  - [Why Version Matters](#why-version-matters-and-why-cant-we-use-the-latest-terraform-version)
 - [2. Simple Example Code](#simple-example-code)
 - [Version Constraints & Operators](#version-constraints)
 - [4. Useful Aliases](#useful-aliases)
