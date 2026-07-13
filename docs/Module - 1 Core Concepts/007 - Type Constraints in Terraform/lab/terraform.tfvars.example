@@ -1,0 +1,5 @@
+# Template for local environment configuration
+# Copy this file to terraform.tfvars and change values as needed.
+
+aws_region  = "us-east-1"
+Environment = "dev"
