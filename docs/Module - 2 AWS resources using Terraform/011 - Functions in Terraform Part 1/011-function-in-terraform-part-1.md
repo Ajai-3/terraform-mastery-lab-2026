@@ -5,11 +5,14 @@
 - [What is a Terraform Function?](#what-is-a-terraform-function)
 - [Types of Terraform Functions](#types-of-terraform-functions)
   - [String Functions](#string-functions)
-  - [Numeric Functions](#numeric-functions)
   - [Collection Functions](#collection-functions)
-  - [Filesystem Functions](#filesystem-functions)
-  - [Type Conversion Functions](#type-conversion-functions)
-  - [Date and Time Functions](#date-and-time-functions)
+  - [lookup Function](#lookup-function)
+  - [Numeric Functions (Part 2)](../012%20-%20Functions%20in%20Terraform%20Part%202/012-function-in-terraform-part-2.md#numeric--math-functions)
+  - [Filesystem Functions (Part 2)](../012%20-%20Functions%20in%20Terraform%20Part%202/012-function-in-terraform-part-2.md#filesystem-functions)
+  - [Type Conversion Functions (Part 2)](../012%20-%20Functions%20in%20Terraform%20Part%202/012-function-in-terraform-part-2.md#type-conversion-functions)
+  - [Date and Time Functions (Part 2)](../012%20-%20Functions%20in%20Terraform%20Part%202/012-function-in-terraform-part-2.md#date-and-time-functions)
+  - [Validation Rules (Part 2)](../012%20-%20Functions%20in%20Terraform%20Part%202/012-function-in-terraform-part-2.md#variable-validation-rules)
+- [Go to Functions Part 2](#go-to-functions-part-2)
 - [Hands-on Lab Example](#hands-on-lab-example)
 
 ---
@@ -118,83 +121,13 @@ resource "aws_s3_bucket" "name" {
 
 ---
 
-### Numeric Functions
-
-Numeric functions in Terraform are built-in tools used to perform mathematical operations, calculations, rounding, and limits on integers and floats.
-
-#### Most Frequently Used Numeric Functions
-
-##### 1. Basic Math & Absolute Values
-* **`abs(number)`**: Returns the absolute (positive) value of a given number.
-  ```terraform
-  abs(-15)       # Output: 15
-  abs(15)        # Output: 15
-  ```
-
-##### 2. Rounding Functions
-* **`ceil(number)`**: Rounds a number up to the nearest whole integer.
-  ```terraform
-  ceil(4.1)      # Output: 5
-  ceil(4.9)      # Output: 5
-  ```
-* **`floor(number)`**: Rounds a number down to the nearest whole integer.
-  ```terraform
-  floor(4.9)     # Output: 4
-  floor(4.1)     # Output: 4
-  ```
-
-##### 3. Min & Max (Boundary Limits)
-* **`max(numbers...)`**: Compares two or more numbers and returns the largest value.
-  ```terraform
-  max(5, 12, 9)  # Output: 12
-  ```
-* **`min(numbers...)`**: Compares two or more numbers and returns the smallest value.
-  ```terraform
-  min(5, 12, 9)  # Output: 5
-  ```
-
-##### 4. Advanced Math Operations
-* **`pow(base, exponent)`**: Calculates the power of a base number raised to an exponent.
-  ```terraform
-  pow(2, 3)      # Output: 8 (2^3)
-  pow(10, 2)     # Output: 100
-  ```
-* **`log(number, base)`**: Calculates the logarithm of a number for a given base.
-  ```terraform
-  log(100, 10)   # Output: 2
-  ```
-* **`signum(number)`**: Determines the sign of a number (returns -1 for negative, 0 for zero, 1 for positive).
-  ```terraform
-  signum(-42)    # Output: -1
-  signum(0)      # Output: 0
-  signum(42)     # Output: 1
-  ```
-
-#### Practical Example:
-If you need to calculate disk size based on predicted workload with a buffer factor:
-```terraform
-locals {
-  estimated_gb = 10.4
-  
-  # Safely rounds up to allocate whole gigabytes (11 GB)
-  allocated_disk_size = ceil(local.estimated_gb)
-}
-```
-
----
-
 ### Collection Functions
 
 Collection functions are built-in tools used to inspect, manipulate, combine, transform, and extract data from collections—such as lists, maps, sets, and objects.
 
 #### Most Frequently Used Collection Functions
 
-##### 1. Element & Lookup Operations
-* **`lookup(map, key, default)`**: Retrieves the value of a single key from a map. If the key doesn't exist, it returns a default value instead of throwing an error.
-  ```terraform
-  lookup({ env = "dev" }, "env", "prod")    # Output: "dev"
-  lookup({ env = "dev" }, "owner", "admin") # Output: "admin" (default fallback)
-  ```
+##### 1. Element Operations
 * **`element(list, index)`**: Retrieves a single element from a list at the given index. If the index is out of bounds, it wraps around.
   ```terraform
   element(["us-east-1a", "us-east-1b"], 0)  # Output: "us-east-1a"
@@ -255,119 +188,39 @@ resource "aws_s3_bucket" "name" {
   bucket = local.formatted_bucket_name
   tags   = local.new_tag
 }
+### lookup Function
+
+The `lookup` function retrieves the value of a single key from a map. If the key does not exist in the map, it returns a specified default value instead of throwing an execution error.
+
+#### Syntax
+```terraform
+lookup(map, key, default)
 ```
 
----
-
-### Filesystem Functions
-
-Filesystem functions are used to read and interact with local files on disk.
-
-#### Most Frequently Used Filesystem Functions
-
-* **`file(path)`**: Reads the contents of a local file at the specified path and returns them as a raw text string.
-  ```terraform
-  file("${path.module}/userdata.sh") # Output: string contents of userdata.sh
-  ```
-* **`fileexists(path)`**: Determines if a file exists at the given path (returns `true` or `false`).
-  ```terraform
-  fileexists("${path.module}/config.json") # Output: true or false
-  ```
-
-#### Practical Example:
+#### Examples
 ```terraform
-resource "aws_instance" "web" {
-  ami           = "ami-0c7217cdde317cfec"
-  instance_type = "t3.micro"
-
-  # Reads user_data script dynamically from a local file
-  user_data = file("${path.module}/scripts/setup.sh")
-}
+lookup({ env = "dev" }, "env", "prod")    # Output: "dev"
+lookup({ env = "dev" }, "owner", "admin") # Output: "admin" (default fallback)
 ```
 
----
-
-### Type Conversion Functions
-
-Type conversion functions allow you to transform values from one data type to another or test expressions safely.
-
-#### Most Frequently Used Type Conversion Functions
-
-* **`tostring(value)`**: Converts a given value to a string.
-  ```terraform
-  tostring(10) # Output: "10"
-  ```
-* **`tonumber(value)`**: Converts a string containing a number to a numeric value.
-  ```terraform
-  tonumber("20") # Output: 20
-  ```
-* **`tobool(value)`**: Converts a string ("true" or "false") to a boolean value.
-  ```terraform
-  tobool("true") # Output: true
-  ```
-* **`tolist(value)`**: Converts a set or other collection type to a list.
-  ```terraform
-  tolist(var.unique_set)
-  ```
-* **`toset(value)`**: Converts a list to a set, automatically removing any duplicate items.
-  ```terraform
-  toset(["dev", "prod", "dev"]) # Output: ["dev", "prod"]
-  ```
-* **`can(expression)`**: Evaluates an expression and returns `true` if it succeeds, or `false` if it fails with an error. Useful for custom type checks.
-  ```terraform
-  can(regex("^[a-z]+$", var.env_name))
-  ```
-* **`try(expressions...)`**: Evaluates a list of expressions in order and returns the value of the first one that does not throw an error.
-  ```terraform
-  try(var.config.ami, "ami-0c7217cdde317cfec") # Fallback to default AMI if config.ami errors
-  ```
-
-#### Practical Example:
+#### Practical Lab Example
+From our [`lab/main.tf`](./lab/main.tf):
 ```terraform
-variable "environment_input" {
-  type    = string
-  default = "DEV"
-}
-
 locals {
-  # Force input string to lowercase and convert it to a set for unique items
-  unique_envs = toset([lower(var.environment_input), "prod"])
+  # Looks up the environment size inside var.instance_size map
+  # If var.environment (e.g. "dev") is found, it returns its size (e.g. "t2.micro")
+  # If not found, it safely falls back to "t2.micro" without failing
+  instance_size = lookup(var.instance_size, var.environment, "t2.micro")
 }
 ```
 
 ---
 
-### Date and Time Functions
+## Go to Functions Part 2
 
-Date and time functions are used to retrieve the current time and format dates.
+For advanced functions and custom rules, please check out Part 2 of this guide:
 
-#### Most Frequently Used Date and Time Functions
-
-* **`timestamp()`**: Returns the current UTC date and time in RFC 3339 format.
-  ```terraform
-  timestamp() # Output: "2026-07-25T06:00:00Z" (example)
-  ```
-* **`formatdate(spec, timestamp)`**: Formats a timestamp string into a customized date format.
-  ```terraform
-  formatdate("YYYY-MM-DD", timestamp()) # Output: "2026-07-25"
-  ```
-* **`timeadd(timestamp, duration)`**: Adds a duration (e.g., `"10m"`, `"24h"`) to a timestamp and returns the new timestamp.
-  ```terraform
-  timeadd(timestamp(), "24h") # Output: timestamp 24 hours in the future
-  ```
-
-#### Practical Example:
-```terraform
-resource "aws_s3_bucket" "log_bucket" {
-  bucket = "app-logs-bucket"
-
-  tags = {
-    # Dynamically sets tag to the date of creation: e.g. "2026-07-25"
-    CreatedOn   = formatdate("YYYY-MM-DD", timestamp())
-    ManagedBy   = "Terraform"
-  }
-}
-```
+* **[Terraform Functions Part - 2 (Numeric, Filesystem, Type Conversion, Date/Time, Validation)](../012%20-%20Functions%20in%20Terraform%20Part%202/012-function-in-terraform-part-2.md)**
 
 ---
 
@@ -396,4 +249,3 @@ terraform console
 # Preview outputs and plan
 terraform plan
 ```
-
