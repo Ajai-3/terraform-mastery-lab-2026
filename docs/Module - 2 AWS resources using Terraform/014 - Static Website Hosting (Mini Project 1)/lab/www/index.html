@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Static Website Demo</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Top Header -->
+        <header class="hero">
+            <h1 class="hero-title">AWS Static Website</h1>
+            <p class="hero-subtitle">High-performance static hosting with modern AWS services</p>
+        </header>
+
+        <!-- Top Feature Cards (5 Columns) -->
+        <section class="features">
+            <div class="feature-card s3-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <h3>Amazon S3</h3>
+                <p>Scalable storage for static website files with high durability and availability.</p>
+            </div>
+            
+            <div class="feature-card cf-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+                </div>
+                <h3>Amazon CloudFront</h3>
+                <p>Global CDN that delivers content with low latency and improves website performance.</p>
+            </div>
+            
+            <div class="feature-card tf-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>AWS Terraform</h3>
+                <p>Infrastructure as Code to provision and manage AWS resources consistently.</p>
+            </div>
+
+            <div class="feature-card tfc-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <h3>Terraform Cloud</h3>
+                <p>Collaborate, automate and manage Terraform runs in the cloud seamlessly.</p>
+            </div>
+
+            <div class="feature-card iac-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+                </div>
+                <h3>Infrastructure as Code</h3>
+                <p>Version-controlled, repeatable, and automated deployments using Terraform.</p>
+            </div>
+        </section>
+
+        <!-- Middle Row: Demo & Architecture -->
+        <main class="content">
+            <!-- Live Demo -->
+            <section class="demo-section">
+                <div class="section-header">
+                    <svg class="header-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    <h2>Live Demo</h2>
+                </div>
+                
+                <div class="demo-grid">
+                    <div class="terminal-box">
+                        <div class="terminal-header">
+                            <span class="terminal-dot red"></span>
+                            <span class="terminal-dot yellow"></span>
+                            <span class="terminal-dot green"></span>
+                            <span class="terminal-title">Deployment Simulator</span>
+                        </div>
+                        <div class="terminal-body" id="terminalBody">
+                            <p class="term-line active-line"># Ready to deploy website...</p>
+                        </div>
+                        <button id="deployButton" class="btn-deploy">Run Terraform Deploy</button>
+                    </div>
+                    
+                    <div class="demo-controls">
+                        <button id="themeButton" class="btn btn-primary">Switch to Light Theme</button>
+                        
+                        <button id="counterButton" class="btn btn-secondary">Click Counter: <span id="counter">0</span></button>
+                        
+                        <div class="status-indicator">
+                            <div class="status-dot"></div>
+                            <span>Status: <span id="status">Active</span></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Architecture Overview -->
+            <section class="info-section">
+                <div class="section-header">
+                    <svg class="header-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    <h2>Architecture Overview</h2>
+                </div>
+                
+                <div class="arch-flow">
+                    <div class="arch-node">
+                        <div class="node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                        <span>User</span>
+                        <p>Requests website</p>
+                    </div>
+                    <div class="arch-arrow-small">&rarr;</div>
+                    
+                    <div class="arch-node">
+                        <div class="node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg></div>
+                        <span>CloudFront</span>
+                        <p>CDN delivers content</p>
+                    </div>
+                    <div class="arch-arrow-small">&rarr;</div>
+
+                    <div class="arch-node">
+                        <div class="node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+                        <span>S3 Bucket</span>
+                        <p>Static files (storage)</p>
+                    </div>
+                    <div class="arch-arrow-small">&rarr;</div>
+
+                    <div class="arch-node">
+                        <div class="node-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="12" y1="4" x2="12" y2="20"/></svg></div>
+                        <span>Terraform</span>
+                        <p>IaC manages infra</p>
+                    </div>
+                </div>
+
+                <div class="architecture-diagram-container">
+                    <img src="arcitecture.png" alt="Architecture Diagram" class="arch-diagram-img">
+                </div>
+            </section>
+        </main>
+
+        <!-- Bottom Stat Cards (5 Columns) -->
+        <section class="stats-row">
+            <div class="stat-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                <div class="stat-info">
+                    <h4>High Performance</h4>
+                    <p>Global CDN with edge locations</p>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <div class="stat-info">
+                    <h4>Highly Available</h4>
+                    <p>99.99% availability & durability</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <div class="stat-info">
+                    <h4>Secure by Default</h4>
+                    <p>HTTPS, IAM policies & best practices</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                <div class="stat-info">
+                    <h4>Cost Effective</h4>
+                    <p>Pay for what you use with AWS</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                <div class="stat-info">
+                    <h4>Automated</h4>
+                    <p>IaC for repeatable deployments</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 AWS Static Website Demo</p>
+            <p>Built with AWS &bull; Terraform &bull; Best Practices</p>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
