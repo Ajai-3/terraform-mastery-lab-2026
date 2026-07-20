@@ -3,8 +3,8 @@ terraform {
       bucket = "my-first-terraform-backend-bucket"
       key = "dev/terrrafrom.tfstate"
       region = "us-east-1"
-      encrypt = "true"
-      use_lockfile = "true"
+      encrypt = true
+      use_lockfile = true
     }
     
   required_providers {
