@@ -1,20 +1,20 @@
 # Terraform Lifecycle Meta-Arguments
 
 ## Topics Covered
-- [What is a Lifecycle Meta-Argument?](#what-is-a-lifecycle-meta-argument)
-- [Terraform Lifecycle Rules](#terraform-lifecycle-rules)
+- [1. What is a Lifecycle Meta-Argument?](#what-is-a-lifecycle-meta-argument)
+- [2. Terraform Lifecycle Rules](#terraform-lifecycle-rules)
   - [1. create_before_destroy](#1-create_before_destroy)
   - [2. prevent_destroy](#2-prevent_destroy)
   - [3. ignore_changes](#3-ignore_changes)
   - [4. replace_triggered_by](#4-replace_triggered_by)
   - [5. precondition](#5-precondition)
   - [6. postcondition](#6-postcondition)
-- [Common Patterns](#common-patterns)
-- [Best Practices & Pitfalls](#best-practices--pitfalls)
+- [3. Common Patterns](#common-patterns)
+- [4. Best Practices & Pitfalls](#best-practices--pitfalls)
 
 ---
 
-## What is a Lifecycle Meta-Argument?
+## 1. What is a Lifecycle Meta-Argument?
 
 A lifecycle meta-argument is a nested block inside a resource that defines how Terraform should manage that specific resource's lifecycle operations — creation, update, replacement, and destruction — independently of dependency order.
 
@@ -22,7 +22,7 @@ A lifecycle meta-argument is a nested block inside a resource that defines how T
 
 ---
 
-## Terraform Lifecycle Rules
+## 2. Terraform Lifecycle Rules
 
 ![Terraform Lifecycle Rules](./images/terraform-cycle-rules.png)
 
@@ -343,7 +343,7 @@ A lifecycle meta-argument is a nested block inside a resource that defines how T
 
 ---
 
-## Common Patterns
+## 3. Common Patterns
 
 * **Pattern 1: Database Protection**: Combine `prevent_destroy = true` with `create_before_destroy = true` for production RDS instances.
 * **Pattern 2: Auto-Scaling Integration**: Use `ignore_changes` for attributes managed dynamically by AWS services (like ASG `desired_capacity`).
@@ -351,7 +351,7 @@ A lifecycle meta-argument is a nested block inside a resource that defines how T
 
 ---
 
-## Best Practices & Pitfalls
+## 4. Best Practices & Pitfalls
 
 * **Use `create_before_destroy`** for critical resources to eliminate downtime.
 * **Apply `prevent_destroy`** to production data stores to protect against accidental deletion.

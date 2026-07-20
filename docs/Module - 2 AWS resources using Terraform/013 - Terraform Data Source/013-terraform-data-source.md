@@ -1,21 +1,21 @@
 # Terraform Data Source
 
 ## Topics Covered
-- [What is a Data Source?](#what-is-a-data-source)
-- [Why We Use Data Sources](#why-we-use-data-sources)
-- [Common Use Cases](#common-use-cases)
-- [Infrastructure Design Overview](#infrastructure-design-overview)
+- [1. What is a Data Source?](#what-is-a-data-source)
+- [2. Why We Use Data Sources](#why-we-use-data-sources)
+- [3. Common Use Cases](#common-use-cases)
+- [4. Infrastructure Design Overview](#infrastructure-design-overview)
   - [Real-Life Analogy: The Secure Tech Park](#real-life-analogy-the-secure-tech-park)
   - [Why We Use This Setup](#why-we-use-this-setup)
   - [Key Components](#key-components)
   - [With VPC vs. Without VPC](#with-vpc-vs-without-vpc)
   - [How It Works](#how-it-works)
-- [Code Explanation](#code-explanation)
-- [Hands-on Lab Example](#hands-on-lab-example)
+- [5. Code Explanation](#code-explanation)
+- [6. Hands-on Lab Example](#hands-on-lab-example)
 
 ---
 
-## What is a Data Source?
+## 1. What is a Data Source?
 
 ![Terraform Data Source](./image/terraform-data-source.png)
 
@@ -32,7 +32,7 @@ A Data Source in Terraform is a read-only request to fetch existing information 
 
 ---
 
-## Why We Use Data Sources
+## 2. Why We Use Data Sources
 
 Beginners often hardcode specific IDs like `ami-0c55b159cbfafe1f0` or `subnet-0123456789abcdef0` directly into their Terraform code. That approach breaks easily when switching AWS regions, migrating accounts, or updating AMI releases. Using data sources and filters makes your infrastructure dynamic, portable, and fully automated.
 
@@ -41,7 +41,7 @@ For a detailed, line-by-line explanation of our lab implementation, check out:
 
 ---
 
-## Common Use Cases
+## 3. Common Use Cases
 
 - **Find Network Resources**: Look up existing VPCs or subnets built by other teams instead of recreating them.
 - **Get Account & Region Info**: Automatically fetch your current AWS Account ID or region.
@@ -51,7 +51,7 @@ For a detailed, line-by-line explanation of our lab implementation, check out:
 
 ---
 
-## Infrastructure Design Overview
+## 4. Infrastructure Design Overview
 
 ![Data Sources Architecture Overview](./image/data-sources-architecture.png)
 
@@ -95,14 +95,14 @@ This architecture simplifies cloud management by allowing administrators to cont
 
 ---
 
-## Code Explanation
+## 5. Code Explanation
 
 We have prepared a comprehensive description mapping variables and resource creations line-by-line:
 * **[View explanation.md](./explanation.md)**
 
 ---
 
-## Hands-on Lab Example
+## 6. Hands-on Lab Example
 
 All files and resources are available in the [`lab`](./lab/) directory:
 

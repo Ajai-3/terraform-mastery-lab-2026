@@ -1,9 +1,9 @@
 # Terraform Functions Part - 1
 
 ## Topics Covered
-- [What is a Function?](#what-is-a-function)
-- [What is a Terraform Function?](#what-is-a-terraform-function)
-- [Types of Terraform Functions](#types-of-terraform-functions)
+- [1. What is a Function?](#what-is-a-function)
+- [2. What is a Terraform Function?](#what-is-a-terraform-function)
+- [3. Types of Terraform Functions](#types-of-terraform-functions)
   - [String Functions](#string-functions)
   - [Collection Functions](#collection-functions)
   - [lookup Function](#lookup-function)
@@ -12,12 +12,12 @@
   - [Type Conversion Functions (Part 2)](../012%20-%20Functions%20in%20Terraform%20Part%202/012-function-in-terraform-part-2.md#type-conversion-functions)
   - [Date and Time Functions (Part 2)](../012%20-%20Functions%20in%20Terraform%20Part%202/012-function-in-terraform-part-2.md#date-and-time-functions)
   - [Validation Rules (Part 2)](../012%20-%20Functions%20in%20Terraform%20Part%202/012-function-in-terraform-part-2.md#variable-validation-rules)
-- [Go to Functions Part 2](#go-to-functions-part-2)
-- [Hands-on Lab Example](#hands-on-lab-example)
+- [4. Go to Functions Part 2](#go-to-functions-part-2)
+- [5. Hands-on Lab Example](#hands-on-lab-example)
 
 ---
 
-## What is a Function?
+## 1. What is a Function?
 
 A function is a self-contained, reusable block of code designed to perform a specific task.
 
@@ -26,7 +26,7 @@ Finding the sum of two numbers — we pass two numbers to the function, and the 
 
 ---
 
-## What is a Terraform Function?
+## 2. What is a Terraform Function?
 
 In Terraform, we use HCL (HashiCorp Configuration Language). It is a configuration language, not a full general-purpose programming language.
 
@@ -41,7 +41,7 @@ terraform console
 
 ---
 
-## Types of Terraform Functions
+## 3. Types of Terraform Functions
 
 ![Types of Terraform Functions](./images/terraform-function-types.png)
 

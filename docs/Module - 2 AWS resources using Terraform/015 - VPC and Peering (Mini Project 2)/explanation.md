@@ -268,7 +268,7 @@ Prints the Public IP (for SSH management) and Private IP (for testing private co
 
 ---
 
-## Verification and Testing
+## 8. Verification and Testing
 
 After deploying the infrastructure using `terraform apply`, you can verify that VPC Peering is working by connecting to one instance and pinging the other using its **private IP**:
 

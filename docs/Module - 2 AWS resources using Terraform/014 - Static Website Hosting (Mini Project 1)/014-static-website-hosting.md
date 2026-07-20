@@ -1,14 +1,14 @@
 # Static Website Hosting (Mini Project 1)
 
 ## Topics Covered
-- [How Static Website Hosting Works](#how-static-website-hosting-works)
-- [System Architecture Details](#system-architecture-details)
-- [Line-by-line Code Explanation](#line-by-line-code-explanation)
-- [Hands-on Lab Example](#hands-on-lab-example)
+- [1. How Static Website Hosting Works](#how-static-website-hosting-works)
+- [2. System Architecture Details](#system-architecture-details)
+- [3. Line-by-line Code Explanation](#line-by-line-code-explanation)
+- [4. Hands-on Lab Example](#hands-on-lab-example)
 
 ---
 
-## How Static Website Hosting Works
+## 1. How Static Website Hosting Works
 
 ![Static Website Hosting](./image/static-website.png)
 
@@ -27,7 +27,7 @@ The system relies on an AWS S3 Bucket acting as the central Origin storing prima
 
 ---
 
-## System Architecture Details
+## 2. System Architecture Details
 
 ![AWS Static Website Architecture](./image/arcitecture.png)
 
@@ -48,14 +48,14 @@ A Content Delivery Network (CDN) service that speeds up static and dynamic web c
 
 ---
 
-## Line-by-line Code Explanation
+## 3. Line-by-line Code Explanation
 
 We have prepared a comprehensive, resource-by-resource and line-by-line breakdown mapping S3 configs, secure CloudFront distributions, object MIME parsing, and automated SSL cert checks:
 * **[View explanation.md](./explanation.md)**
 
 ---
 
-## Hands-on Lab Example
+## 4. Hands-on Lab Example
 
 All files and static assets are located in the [`lab`](./lab/) directory:
 

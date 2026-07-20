@@ -4,7 +4,7 @@ This step-by-step practical guide demonstrates how to set up, initialize, plan, 
 
 ---
 
-## Step 1: Setting up an Alias for Terraform (Optional)
+## 1. Step 1: Setting up an Alias for Terraform (Optional)
 
 To speed up execution, you can set a shell alias so that typing `tf` runs `terraform` automatically:
 
@@ -21,7 +21,7 @@ To speed up execution, you can set a shell alias so that typing `tf` runs `terra
 
 ---
 
-## Step 2: Creating the Configuration File
+## 2. Step 2: Creating the Configuration File
 
 Create a file named `main.tf` and add the following content to configure the AWS provider and provision a VPC:
 
@@ -49,7 +49,7 @@ resource "aws_vpc" "example" {
 
 ---
 
-## Step 3: Initializing Terraform
+## 3. Step 3: Initializing Terraform
 
 Run the init command to initialize the directory and download the AWS provider plugins:
 
@@ -77,7 +77,7 @@ Here is a breakdown of what each folder and file does:
 
 ---
 
-## Step 4: Validating the Configuration
+## 4. Step 4: Validating the Configuration
 
 Verify that your Terraform configuration is syntactically correct and internally consistent:
 
@@ -89,7 +89,7 @@ tf validate
 
 ---
 
-## Step 5: Performing a Dry Run (Plan)
+## 5. Step 5: Performing a Dry Run (Plan)
 
 Generate an execution plan to preview the changes Terraform will make to your infrastructure without actually creating them:
 
@@ -101,7 +101,7 @@ tf plan
 
 ---
 
-## Step 6: Applying the Changes
+## 6. Step 6: Applying the Changes
 
 Deploy your infrastructure to AWS:
 
@@ -115,7 +115,7 @@ Review the plan and type `yes` to confirm the deployment.
 
 ---
 
-## Step 7: Updating Resources (Adding Tags)
+## 7. Step 7: Updating Resources (Adding Tags)
 
 Let's modify the existing resource in `main.tf` to add a Name tag to our VPC:
 
@@ -140,7 +140,7 @@ tf apply
 
 ---
 
-## Step 8: Destroying Infrastructure
+## 8. Step 8: Destroying Infrastructure
 
 Clean up and delete all resources managed by this configuration to avoid unexpected AWS costs:
 

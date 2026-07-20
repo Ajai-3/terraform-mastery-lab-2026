@@ -1,17 +1,17 @@
 # Terraform File Structure
 
 ## Topics Covered
-- [Terraform File Organization](#terraform-file-organization)
-- [Sequence of File Loading](#sequence-of-file-loading)
-- [Environment Separation with tfvars](#environment-separation-with-tfvars)
-- [Advanced File Organization Patterns](#advanced-file-organization-patterns)
-- [Best Practices for Structure](#best-practices-for-structure)
-- [Commands for Testing](#commands-for-testing)
-- [Common File Organization Mistakes](#common-file-organization-mistakes)
+- [1. Terraform File Organization](#terraform-file-organization)
+- [2. Sequence of File Loading](#sequence-of-file-loading)
+- [3. Environment Separation with tfvars](#environment-separation-with-tfvars)
+- [4. Advanced File Organization Patterns](#advanced-file-organization-patterns)
+- [5. Best Practices for Structure](#best-practices-for-structure)
+- [6. Commands for Testing](#commands-for-testing)
+- [7. Common File Organization Mistakes](#common-file-organization-mistakes)
 
 ---
 
-## Terraform File Organization
+## 1. Terraform File Organization
 
 There is no strict rule or format you must stick to. Below is a standard, recommended style that is commonly used:
 
@@ -31,7 +31,7 @@ README.md
 
 ---
 
-## Sequence of File Loading
+## 2. Sequence of File Loading
 
 - Terraform loads **all** files ending with `.tf` in the current working directory.
 - It merges them together in memory, meaning file names do not affect how resources are ordered or executed.
@@ -39,7 +39,7 @@ README.md
 
 ---
 
-## Environment Separation with tfvars
+## 3. Environment Separation with tfvars
 
 If you hardcode default values into `variables.tf`, you have to modify your code every time you switch between `dev`, `stage`, and `prod`.
 
@@ -65,7 +65,7 @@ terraform apply -var-file="prod.tfvars"
 
 ---
 
-## Advanced File Organization Patterns
+## 4. Advanced File Organization Patterns
 
 ### Environment-Specific Structure
 ```text
@@ -121,7 +121,7 @@ infrastructure/
 
 ---
 
-## Best Practices for Structure
+## 5. Best Practices for Structure
 
 - **Consistent Naming**:
   - Use clear, descriptive file names.
@@ -146,7 +146,7 @@ infrastructure/
 
 ---
 
-## Commands for Testing
+## 6. Commands for Testing
 
 Use these commands to validate, format, and test your file structure:
 
@@ -169,7 +169,7 @@ Use these commands to validate, format, and test your file structure:
 
 ---
 
-## Common File Organization Mistakes
+## 7. Common File Organization Mistakes
 
 - **Everything in `main.tf`**: Makes the code hard to navigate and edit.
 - **Inconsistent Naming**: Confuses team members and breaks conventions.

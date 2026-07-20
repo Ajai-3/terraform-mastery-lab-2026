@@ -1,11 +1,11 @@
 # Type Constraints in Terraform
 
 ## Topics Covered
-- [Primitive Types (String, Number, Bool)](#primitive-types-string-number-bool)
-- [Collection Types (List, Set, Map)](#collection-types-list-set-map)
-- [Structural Types (Tuple, Object)](#structural-types-tuple-object)
-- [Type Validation & Custom Constraints](#type-validation--custom-constraints)
-- [Hands-on Lab Guide](#hands-on-lab-guide)
+- [1. Primitive Types (String, Number, Bool)](#primitive-types-string-number-bool)
+- [2. Collection Types (List, Set, Map)](#collection-types-list-set-map)
+- [3. Structural Types (Tuple, Object)](#structural-types-tuple-object)
+- [4. Type Validation & Custom Constraints](#type-validation--custom-constraints)
+- [5. Hands-on Lab Guide](#hands-on-lab-guide)
 
 ---
 
@@ -13,7 +13,7 @@
 
 ---
 
-## Primitive Types (String, Number, Bool)
+## 1. Primitive Types (String, Number, Bool)
 
 Primitive types represent single, basic values.
 
@@ -75,7 +75,7 @@ Primitive types represent single, basic values.
 
 ---
 
-## Collection Types (List, Set, Map)
+## 2. Collection Types (List, Set, Map)
 
 Collection types hold multiple values of the **same data type**.
 
@@ -143,7 +143,7 @@ Collection types hold multiple values of the **same data type**.
 
 ---
 
-## Structural Types (Tuple, Object)
+## 3. Structural Types (Tuple, Object)
 
 Structural types allow grouping multiple values of **different data types** into a single variable.
 
@@ -209,7 +209,7 @@ Structural types allow grouping multiple values of **different data types** into
 
 ---
 
-## Type Validation & Custom Constraints
+## 4. Type Validation & Custom Constraints
 
 You can add custom `validation` rules to input variables to enforce strict inputs before running Terraform operations:
 
@@ -227,7 +227,7 @@ variable "Environment" {
 
 ---
 
-## Hands-on Lab Guide
+## 5. Hands-on Lab Guide
 
 All code examples demonstrated in this guide are located in the [lab directory](./lab/):
 

@@ -1,25 +1,25 @@
 # Introduction to Infrastructure as Code and Terraform
 
 ## Topics Covered
-- [What is Infrastructure as Code?](#what-is-infrastructure-as-code)
-- [Why Infrastructure as Code?](#why-infrastructure-as-code)
-- [Benefits of IaC](#benefits-of-iac)
-- [What is Terraform?](#what-is-terraform)
+- [1. What is Infrastructure as Code?](#what-is-infrastructure-as-code)
+- [2. Why Infrastructure as Code?](#why-infrastructure-as-code)
+- [3. Benefits of IaC](#benefits-of-iac)
+- [4. What is Terraform?](#what-is-terraform)
 - [AWS 3-Tier Architecture](#aws-3-tier-architecture)
-- [What Happens at the Enterprise Level?](#what-happens-at-the-enterprise-level)
-- [Challenges](#challenges)
-- [How Terraform Helps](#how-terraform-helps)
-- [How Terraform Works](#how-terraform-works)
-- [Install Terraform](#install-terraform)
+- [7. What Happens at the Enterprise Level?](#what-happens-at-the-enterprise-level)
+- [8. Challenges](#challenges)
+- [9. How Terraform Helps](#how-terraform-helps)
+- [10. How Terraform Works](#how-terraform-works)
+- [11. Install Terraform](#install-terraform)
 
 ---
 
-## What is Infrastructure as Code?
+## 1. What is Infrastructure as Code?
 Infrastructure as Code (IaC) is the practice of provisioning and managing your infrastructure through code instead of manual processes.
 
 ![alt.image](./images/iac.png)
 
-## Why Infrastructure as Code?
+## 2. Why Infrastructure as Code?
 - **Consistency**: Deploy identical environments across development, staging, and production.
 - **Time Efficiency**: Automated provisioning saves hours of manual work.
 - **Cost Management**: Easily track costs and automate cleanup.
@@ -28,7 +28,7 @@ Infrastructure as Code (IaC) is the practice of provisioning and managing your i
 - **Reduced Human Error**: Eliminate manual configuration mistakes.
 - **Collaboration**: Allow teams to collaborate on infrastructure code together.
 
-## Benefits of IaC
+## 3. Benefits of IaC
 - Consistent environment deployment
 - Easy to track and manage costs
 - Write once, deploy many (single codebase)
@@ -40,7 +40,7 @@ Infrastructure as Code (IaC) is the practice of provisioning and managing your i
 - Developers can focus on application development
 - Easy creation of identical environments for troubleshooting
 
-## What is Terraform?
+## 4. What is Terraform?
 Terraform is a tool for Infrastructure as Code (IaC) that helps automate infrastructure provisioning and management across multiple cloud providers.
 
 In simple terms, instead of manually logging into a cloud provider's website (like AWS, Azure, or Google Cloud) and clicking through dashboards to set up servers, databases, or networks, you write configuration files that describe your desired infrastructure.
@@ -53,12 +53,12 @@ eg: you write the code for creating an EC2 instance or S3, and Terraform will cr
 
 ![alt.image](./images/code-as-infra.png)
 
-## Terraform Architucture
+## 5. Terraform Architucture
 
 ![alt.image](./images/terraform-architecture.png)
 
 
-## Simple AWS 3-Tier Architecture
+## 6. Simple AWS 3-Tier Architecture
 ![alt.image](./images/simple-aws-3-tire-architecture.png)
 
 A standard 3-tier architecture consists of:
@@ -70,7 +70,7 @@ A standard 3-tier architecture consists of:
 
 To build a standard 3-tier architecture (Web, App, Database) on AWS manually from scratch, you should budget for 2 to 4 hours of focused work if you are familiar with the AWS console.
 
-## What Happens at the Enterprise Level?
+## 7. What Happens at the Enterprise Level?
 At the enterprise level, there will be many different environments created for different purposes.
 
 When you create "more environments," you are essentially hosting the project multiple times (or isolated versions of it) in parallel for specific purposes.
@@ -93,7 +93,7 @@ Total Manual Time: For all 6 environments, this equates to 24 to 48 hours (3 to 
 
 At this scale, manual setup becomes highly complicated, and doing all of this manually defeats the purpose of using the cloud.
 
-## Challenges
+## 8. Challenges
 ![alt.image](./images/challenges.png)
 
 The development team depends heavily on the infrastructure team because provisioning the environments takes 12 hours per application. Since the development team must wait for this process to complete, it creates a significant bottleneck and dependency.
@@ -107,7 +107,7 @@ Other challenges include:
 - **Security risks (insecure environments)**: Inconsistencies in manual setups can accidentally expose resources or leave critical security settings unapplied.
 - **"It works on my machine" syndrome**: Differences between local development configurations and the production environment cause bugs that only show up after deployment.
 
-## How Terraform Helps
+## 9. How Terraform Helps
 ![alt.image](./images/bettername.png)
 
 With Terraform, DevOps engineers write the configuration once, enabling you to create and manage multiple environments using a single configuration file.
@@ -119,7 +119,7 @@ Key benefits of using Terraform:
 - **Change tracking via version control**: Every modification is documented in Git, showing who made changes, when, and why.
 - **Makes life easier**: Eliminates manual troubleshooting and complex setups, letting developers focus on writing actual application code.
 
-## How Terraform Works
+## 10. How Terraform Works
 Terraform uses `.tf` files written in **HCL** (HashiCorp Configuration Language). It is similar to JSON, but features its own structure that is both human-readable and machine-readable.
 
 The workflow is as follows:
@@ -140,7 +140,7 @@ When you create a resource from the AWS Management Console or using the AWS CLI,
 
 ---
 
-## Install Terraform
+## 11. Install Terraform
 Follow the official installation guide: [HashiCorp Terraform Installation Guide](https://developer.hashicorp.com/terraform/install)
 
 ### Common Installation Commands

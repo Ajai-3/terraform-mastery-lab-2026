@@ -1,19 +1,19 @@
 # Terraform Meta-Arguments
 
 ## Topics Covered
-- [What are Arguments?](#what-are-arguments)
-- [Resource Arguments vs. Meta-Arguments](#resource-arguments-vs-meta-arguments)
-- [The `depends_on` Meta-Argument](#the-depends_on-meta-argument)
+- [1. What are Arguments?](#what-are-arguments)
+- [2. Resource Arguments vs. Meta-Arguments](#resource-arguments-vs-meta-arguments)
+- [3. The `depends_on` Meta-Argument](#the-depends_on-meta-argument)
   - [Implicit Dependencies](#implicit-dependencies)
   - [Explicit Dependencies](#explicit-dependencies)
-- [The `count` Meta-Argument](#the-count-meta-argument)
-- [The `for_each` Meta-Argument](#the-for_each-meta-argument)
-- [The `provider` & `lifecycle` Meta-Arguments](#the-provider--lifecycle-meta-arguments)
-- [Practical Execution Analysis](#practical-execution-analysis)
+- [4. The `count` Meta-Argument](#the-count-meta-argument)
+- [5. The `for_each` Meta-Argument](#the-for_each-meta-argument)
+- [6. The `provider` & `lifecycle` Meta-Arguments](#the-provider--lifecycle-meta-arguments)
+- [7. Practical Execution Analysis](#practical-execution-analysis)
 
 ---
 
-## What are Arguments?
+## 1. What are Arguments?
 
 In Terraform, **arguments** are the inputs you provide inside a resource block to define how that resource should be configured when Terraform creates or manages it.
 
@@ -27,7 +27,7 @@ resource "aws_instance" "example" {
 
 ---
 
-## Resource Arguments vs. Meta-Arguments
+## 2. Resource Arguments vs. Meta-Arguments
 
 ### Resource Arguments (Provided by the Provider)
 These arguments are defined by a specific cloud provider (e.g., AWS, Azure, GCP). They represent the actual configuration attributes of that infrastructure resource (such as `ami`, `instance_type`, or `bucket`).
@@ -46,7 +46,7 @@ The 5 main meta-arguments in Terraform:
 
 ---
 
-## The `depends_on` Meta-Argument
+## 3. The `depends_on` Meta-Argument
 
 The `depends_on` meta-argument establishes explicit dependencies between multiple resources.
 
@@ -93,7 +93,7 @@ resource "aws_instance" "example_b" {
 
 ---
 
-## The `count` Meta-Argument
+## 4. The `count` Meta-Argument
 
 `count` is a meta-argument that acts as a loop counter to create multiple copies of a resource without duplicating code.
 
@@ -123,7 +123,7 @@ resource "aws_s3_bucket" "bucket_list" {
 
 ---
 
-## The `for_each` Meta-Argument
+## 5. The `for_each` Meta-Argument
 
 `for_each` iterates over a **`set`** or a **`map`** of values, creating a separate resource instance for each item.
 
@@ -183,7 +183,7 @@ resource "aws_s3_bucket" "bucket_map" {
 
 ---
 
-## The `provider` & `lifecycle` Meta-Arguments
+## 6. The `provider` & `lifecycle` Meta-Arguments
 
 ### `provider`
 Specifies an alternate provider configuration when working with multi-region or multi-account setups. (See [`002 - Providers`](../002%20-%20Providers/002-Providers.md) for full details).
@@ -196,7 +196,7 @@ Controls lifecycle rules for resource management:
 
 ---
 
-## Practical Execution Analysis
+## 7. Practical Execution Analysis
 
 This section analyzes the execution logs from our [`lab`](./lab/main.tf) setup.
 

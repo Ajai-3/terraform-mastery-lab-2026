@@ -1,15 +1,15 @@
 # AWS S3 Bucket Management
 
 ## Topics Covered
-- [Authentication & Authorization to AWS](#authentication--authorization-to-aws)
-- [S3 Bucket Management](#s3-bucket-management)
-- [Understanding Dependencies](#understanding-dependencies)
-- [Simple Example Code](#simple-example-code)
-- [Hands-on Lab](#hands-on-lab)
+- [1. Authentication & Authorization to AWS](#authentication--authorization-to-aws)
+- [2. S3 Bucket Management](#s3-bucket-management)
+- [3. Understanding Dependencies](#understanding-dependencies)
+- [4. Simple Example Code](#simple-example-code)
+- [5. Hands-on Lab](#hands-on-lab)
 
 ---
 
-## Authentication & Authorization to AWS
+## 1. Authentication & Authorization to AWS
 
 Before Terraform can create any resource on AWS, it needs authentication credentials. Terraform automatically searches for credentials in the following order:
 
@@ -26,7 +26,7 @@ Before Terraform can create any resource on AWS, it needs authentication credent
 
 ---
 
-## S3 Bucket Management
+## 2. S3 Bucket Management
 
 Amazon Simple Storage Service (S3) is an object storage service. When managing S3 buckets with Terraform:
 
@@ -48,7 +48,7 @@ resource "aws_s3_bucket" "first_bucket" {
 
 ---
 
-## Understanding Dependencies
+## 3. Understanding Dependencies
 
 Terraform automatically builds a dependency graph of your infrastructure to decide the order in which to create, modify, or destroy resources.
 
@@ -57,7 +57,7 @@ Terraform automatically builds a dependency graph of your infrastructure to deci
 
 ---
 
-## Simple Example Code
+## 4. Simple Example Code
 
 This is the configuration defined in your [main.tf](./lab/main.tf) file:
 
@@ -89,7 +89,7 @@ resource "aws_s3_bucket" "first_bucket" {
 
 ---
 
-## Hands-on Lab
+## 5. Hands-on Lab
 
 Follow these steps to initialize and deploy the bucket:
 

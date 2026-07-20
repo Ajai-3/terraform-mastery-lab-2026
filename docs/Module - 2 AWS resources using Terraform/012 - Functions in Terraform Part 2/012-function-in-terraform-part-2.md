@@ -1,17 +1,17 @@
 # Terraform Functions Part - 2
 
 ## Topics Covered
-- [Variable Validation Rules](#variable-validation-rules)
-- [Numeric & Math Functions](#numeric--math-functions)
-- [Filesystem Functions](#filesystem-functions)
-- [Type Conversion Functions](#type-conversion-functions)
-- [Date and Time Functions](#date-and-time-functions)
-- [Go back to Functions Part 1](#go-back-to-functions-part-1)
-- [Hands-on Lab Example](#hands-on-lab-example)
+- [1. Variable Validation Rules](#variable-validation-rules)
+- [2. Numeric & Math Functions](#numeric--math-functions)
+- [3. Filesystem Functions](#filesystem-functions)
+- [4. Type Conversion Functions](#type-conversion-functions)
+- [5. Date and Time Functions](#date-and-time-functions)
+- [6. Go back to Functions Part 1](#go-back-to-functions-part-1)
+- [7. Hands-on Lab Example](#hands-on-lab-example)
 
 ---
 
-## Variable Validation Rules
+## 1. Variable Validation Rules
 
 Validation rules allow you to validate input variables before Terraform creates or modifies resources. They use conditions containing functions like `length()`, `can()`, `regex()`, and string inspection functions like `endswith()`.
 
@@ -53,7 +53,7 @@ variable "backup_name" {
 
 ---
 
-## Numeric & Math Functions
+## 2. Numeric & Math Functions
 
 Numeric functions perform calculations, boundary checking, and mathematical updates.
 
@@ -96,7 +96,7 @@ locals {
 
 ---
 
-## Filesystem Functions
+## 3. Filesystem Functions
 
 Filesystem functions are used to read and check the existence of local files on disk.
 
@@ -112,7 +112,7 @@ Filesystem functions are used to read and check the existence of local files on 
 
 ---
 
-## Type Conversion Functions
+## 4. Type Conversion Functions
 
 Type conversion functions convert values between data types or safely check variables.
 
@@ -148,7 +148,7 @@ locals {
 
 ---
 
-## Date and Time Functions
+## 5. Date and Time Functions
 
 Date and time functions retrieve the current system time and format timestamps.
 
@@ -168,7 +168,7 @@ Date and time functions retrieve the current system time and format timestamps.
 
 ---
 
-## Go back to Functions Part 1
+## 6. Go back to Functions Part 1
 
 For basic functions, case manipulation, and collection functions, see Part 1 of this guide:
 
@@ -176,7 +176,7 @@ For basic functions, case manipulation, and collection functions, see Part 1 of 
 
 ---
 
-## Hands-on Lab Example
+## 7. Hands-on Lab Example
 
 All functions and validation rules demonstrated in this guide are implemented in the [`lab`](./lab/) directory:
 

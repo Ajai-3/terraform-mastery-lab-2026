@@ -2,14 +2,14 @@
 
 ## Topics Covered
 - [How Terraform Updates Infrastructure](#how-terraform-updates-infra)
-- [Terraform State File](#terraform-state-file)
-- [State File Best Practices](#state-file-best-practices)
-- [Remote Backend Setup](#remote-backend-setup)
-- [State Management Commands](#state-management-commands)
+- [2. Terraform State File](#terraform-state-file)
+- [3. State File Best Practices](#state-file-best-practices)
+- [4. Remote Backend Setup](#remote-backend-setup)
+- [5. State Management Commands](#state-management-commands)
 
 ---
 
-## How Terraform Updates Infra
+## 1. How Terraform Updates Infra
 
 Terraform updates its infrastructure with the help of the `terraform.tfstate` file.
 
@@ -19,7 +19,7 @@ When a developer runs `terraform apply`, Terraform compares the **Desired State*
 
 ---
 
-## Terraform State File
+## 2. Terraform State File
 
 A Terraform state file is a highly confidential file that maps your real-world resources to your configuration, keeps track of metadata, and improves performance. It contains detailed information about all resources managed by your configuration.
 
@@ -35,7 +35,7 @@ A Terraform state file is a highly confidential file that maps your real-world r
 
 ---
 
-## State File Best Practices
+## 3. State File Best Practices
 
 Here is a comparison of how state files are managed in different setups (defined in [main.tf](./lab/main.tf)):
 
@@ -49,7 +49,7 @@ Here is a comparison of how state files are managed in different setups (defined
 
 ---
 
-## Remote Backend Setup
+## 4. Remote Backend Setup
 
 > [!IMPORTANT]
 > Create the S3 backend bucket separately first. Do not add this bucket to the main resource blocks of the same Terraform configuration (to avoid a chicken-and-egg deployment issue).
@@ -130,7 +130,7 @@ If you are moving from local state to a remote backend:
 
 ---
 
-## State Management Commands
+## 5. State Management Commands
 
 Use these commands to view, inspect, and modify resources within your state safely:
 

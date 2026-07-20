@@ -1,15 +1,15 @@
 # Dynamic Blocks and Expressions
 
 ## Topics Covered
-- [What is a Terraform Expression?](#what-is-a-terraform-expression)
-- [Conditional Expressions](#conditional-expressions)
-- [Dynamic Blocks](#dynamic-blocks)
-- [Splat Expressions](#splat-expressions)
-- [Hands-on Lab Example](#hands-on-lab-example)
+- [1. What is a Terraform Expression?](#what-is-a-terraform-expression)
+- [2. Conditional Expressions](#conditional-expressions)
+- [3. Dynamic Blocks](#dynamic-blocks)
+- [4. Splat Expressions](#splat-expressions)
+- [5. Hands-on Lab Example](#hands-on-lab-example)
 
 ---
 
-## What is a Terraform Expression?
+## 1. What is a Terraform Expression?
 
 A Terraform expression computes or returns values dynamically instead of hardcoding them. It follows the DRY (Don't Repeat Yourself) principle to eliminate duplicate code blocks and make configurations dynamic, concise, and maintainable.
 
@@ -17,7 +17,7 @@ A Terraform expression computes or returns values dynamically instead of hardcod
 
 ---
 
-## Conditional Expressions
+## 2. Conditional Expressions
 
 Conditional expressions perform if/else logic directly inside attribute assignments.
 
@@ -65,7 +65,7 @@ instance_type = var.Environment == "prod" ? "t3.micro" : "t2.micro"
 
 ---
 
-## Dynamic Blocks
+## 3. Dynamic Blocks
 
 Dynamic blocks allow you to avoid repeating nested blocks (like Security Group ingress rules or EC2 storage tags) by generating them dynamically from a list or map.
 
@@ -108,7 +108,7 @@ Dynamic blocks allow you to avoid repeating nested blocks (like Security Group i
 
 ---
 
-## Splat Expressions
+## 4. Splat Expressions
 
 Splat expressions extract a specific attribute from a list of resources into a clean list without needing complex loops.
 
@@ -140,7 +140,7 @@ output "all_instance_ips" {
 
 ---
 
-## Hands-on Lab Example
+## 5. Hands-on Lab Example
 
 All expressions demonstrated in this guide are implemented in the [`lab`](./lab/) directory:
 

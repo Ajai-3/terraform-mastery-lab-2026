@@ -1,18 +1,18 @@
 # Terraform Variables
 
 ## Topics Covered
-- [Why We Need Variables](#why-we-need-variables)
-- [Variable Types](#variable-types)
+- [1. Why We Need Variables](#why-we-need-variables)
+- [2. Variable Types](#variable-types)
   - [Input Variables](#input-variables)
   - [Output Variables](#output-variables)
   - [Local Values (Locals)](#local-values-locals)
-- [Example Configuration](#example-configuration)
-- [Variable Precedence](#variable-precedence)
+- [3. Example Configuration](#example-configuration)
+- [4. Variable Precedence](#variable-precedence)
 - [Variable Files (.tfvars)](#variable-files)
 
 ---
 
-## Why We Need Variables
+## 1. Why We Need Variables
 
 Whenever you need to use a value again and again, you would normally have to type that value again and again. To solve this issue, we use variables. This allows us to define a value once and reuse it across our configurations.
 
@@ -20,7 +20,7 @@ Whenever you need to use a value again and again, you would normally have to typ
 
 ---
 
-## Variable Types
+## 2. Variable Types
 
 ### Input Variables
 Instead of hardcoding values directly into your resource blocks (like writing `"us-east-1"` or `"dev"` over and over), you store those values in an input variable. This makes your code reusable, flexible, and easy to change without touching the actual resource code.
@@ -36,7 +36,7 @@ Locals are internal computed values that help simplify your code. They are decla
 
 ---
 
-## Example Configuration
+## 3. Example Configuration
 
 This configuration shows how input variables, locals, and outputs are defined and referenced in your [main.tf](./lab/main.tf) file:
 
@@ -77,7 +77,7 @@ terraform output
 
 ---
 
-## Variable Precedence
+## 4. Variable Precedence
 
 When the same variable is assigned multiple values, Terraform resolves the conflict using a specific hierarchy. The precedence order (from **lowest to highest**) is:
 
@@ -92,7 +92,7 @@ When the same variable is assigned multiple values, Terraform resolves the confl
 
 ---
 
-## Variable Files
+## 5. Variable Files
 
 You can use variable assignment files (ending in `.tfvars` or `.tfvars.json`) to define values for your variables. 
 

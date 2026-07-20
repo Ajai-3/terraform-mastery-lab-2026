@@ -1,16 +1,16 @@
 # Terraform Provider
 
 ## Topics Covered
-- [What is a Terraform Provider?](#what-is-a-terraform-provider)
+- [1. What is a Terraform Provider?](#what-is-a-terraform-provider)
 - [Why Version Matters](#why-version-matters-and-why-cant-we-use-the-latest-terraform-version)
-- [Simple Example Code](#simple-example-code)
+- [2. Simple Example Code](#simple-example-code)
 - [Version Constraints & Operators](#version-constraints)
-- [Useful Aliases](#useful-aliases)
-- [Practical Lab](#-practical-lab)
+- [4. Useful Aliases](#useful-aliases)
+- [5. Practical Lab](#-practical-lab)
 
 ---
 
-## What is a Terraform Provider?
+## 1. What is a Terraform Provider?
 
 It is like a plugin used to translate the Terraform code into code that the cloud provider understands.
 
@@ -66,7 +66,7 @@ If you want to upgrade to a newer version, you should first test the upgrade in 
 
 ---
 
-## Simple Example Code
+## 2. Simple Example Code
 
 ```terraform
 terraform {
@@ -96,7 +96,7 @@ resource "aws_vpc" "example" {
 
 ---
 
-## Version Constraints
+## 3. Version Constraints
 
 - `version = "~> 6.7.0"` — This is the **Provider** version constraint.
 - `required_version = ">= 1.0"` — This is the **Terraform core** version constraint.
@@ -123,7 +123,7 @@ Using `version = "~> 6.7.0"` allows Terraform to update only the patch version (
 
 ---
 
-## Useful Aliases
+## 4. Useful Aliases
 
 These commands help you set an alias so that instead of typing `terraform` every time, you can just type `tf`:
 
@@ -143,7 +143,7 @@ tf -version
 
 ---
 
-## Practical Lab
+## 5. Practical Lab
 
 Ready to put this into practice? Head over to the practical lab guide:
 
