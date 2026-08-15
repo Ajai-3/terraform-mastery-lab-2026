@@ -7,5 +7,5 @@ variable "environment_name" {
 variable "s3_bucket_name" {
   type        = string
   description = "Globally unique name for the static website S3 bucket"
-  default     = "static-website-dev-002285-n1"
+  default     = "static-website-dev-002285-n2"
 }
