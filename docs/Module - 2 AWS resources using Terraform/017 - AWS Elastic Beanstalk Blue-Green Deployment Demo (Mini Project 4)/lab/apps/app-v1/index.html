@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#090d16">
+    <title>Deployment Console</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        :root {
+            color-scheme: dark;
+            --bg: #090d16;
+            --panel: #101725;
+            --border: #202c40;
+            --text: #e8eef9;
+            --muted: #8391a8;
+            --blue: #6195ff;
+            --green: #43d6a1;
+        }
+
+        html,
+        body {
+            margin: 0;
+            width: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            min-height: 100vh;
+            min-height: 100svh;
+            display: grid;
+            place-items: center;
+            padding: 20px;
+            background:
+                radial-gradient(ellipse at 50% 0%,
+                    #172c50 0%,
+                    transparent 55%),
+                var(--bg);
+            color: var(--text);
+            font-family: Inter, -apple-system, BlinkMacSystemFont,
+                "Segoe UI", sans-serif;
+        }
+
+        main {
+            width: min(100%, 650px);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 0;
+        }
+
+        .logo {
+            width: 36px;
+            height: 36px;
+            flex-shrink: 0;
+            display: grid;
+            place-items: center;
+            color: var(--blue);
+            background: #15233b;
+            border: 1px solid #263d62;
+            border-radius: 10px;
+        }
+
+        .brand-name {
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .brand-sub {
+            margin-top: 3px;
+            color: var(--muted);
+            font-size: 10px;
+        }
+
+        .status {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            flex-shrink: 0;
+            padding: 7px 10px;
+            border: 1px solid #214637;
+            border-radius: 20px;
+            color: var(--green);
+            background: #102019;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .06em;
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            flex-shrink: 0;
+            background: var(--green);
+            border-radius: 50%;
+        }
+
+        .panel {
+            padding: 28px;
+            background: linear-gradient(145deg, #121b2a, #0e1420);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            box-shadow: 0 20px 60px #0005;
+        }
+
+        .eyebrow {
+            color: var(--muted);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .15em;
+        }
+
+        h1 {
+            margin: 13px 0 8px;
+            font-size: clamp(25px, 5vw, 34px);
+            line-height: 1.15;
+            letter-spacing: -.04em;
+        }
+
+        .description {
+            margin: 0;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        .divider {
+            height: 1px;
+            margin: 22px 0;
+            background: var(--border);
+        }
+
+        .deployment {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .label {
+            margin-bottom: 8px;
+            color: var(--muted);
+            font-size: 10px;
+            letter-spacing: .12em;
+            font-weight: 700;
+        }
+
+        .version {
+            font-size: 36px;
+            font-weight: 750;
+            letter-spacing: -.05em;
+            overflow-wrap: anywhere;
+        }
+
+        .version span {
+            color: var(--blue);
+        }
+
+        .environment {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            margin-top: 9px;
+            padding: 7px 10px;
+            background: #192a46;
+            border: 1px solid #29436d;
+            border-radius: 7px;
+            color: #a9c6ff;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .05em;
+        }
+
+        .env-dot {
+            width: 7px;
+            height: 7px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: var(--blue);
+        }
+
+        .stable {
+            align-self: flex-start;
+            max-width: 45%;
+            padding: 6px 9px;
+            overflow-wrap: anywhere;
+            color: var(--green);
+            background: #12271f;
+            border: 1px solid #244636;
+            border-radius: 6px;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: .07em;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .info-card {
+            min-width: 0;
+            padding: 14px;
+            background: #0b111d;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            transition: border-color .2s ease;
+        }
+
+        .info-card:hover {
+            border-color: #344d73;
+        }
+
+        .info-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+            color: var(--muted);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .07em;
+        }
+
+        .info-label svg {
+            flex-shrink: 0;
+            color: var(--blue);
+        }
+
+        .info-value {
+            color: var(--text);
+            font-size: 12px;
+            line-height: 1.6;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+
+        .section-title {
+            margin: 0 0 13px;
+            color: #cbd5e5;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 15px;
+            color: #65738a;
+            font-size: 10px;
+        }
+
+        @media (max-width: 420px) {
+            body {
+                padding: 14px;
+            }
+
+            .panel {
+                padding: 20px 16px;
+            }
+
+            .version {
+                font-size: 29px;
+            }
+
+            .info-grid {
+                gap: 8px;
+            }
+
+            .info-card {
+                padding: 11px 9px;
+            }
+
+            .info-value {
+                font-size: 11px;
+            }
+
+            .brand-name {
+                font-size: 12px;
+            }
+
+            .status {
+                padding: 7px 8px;
+                font-size: 9px;
+            }
+        }
+
+        @media (max-height: 650px) and (min-width: 421px) {
+            body {
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+            header {
+                margin-bottom: 10px;
+            }
+
+            .panel {
+                padding: 18px 24px;
+            }
+
+            .divider {
+                margin: 13px 0;
+            }
+
+            h1 {
+                margin-top: 8px;
+                font-size: 26px;
+            }
+
+            .description {
+                line-height: 1.5;
+            }
+
+            .version {
+                font-size: 30px;
+            }
+
+            footer {
+                margin-top: 10px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <header>
+            <div class="brand">
+                <div class="logo" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                        stroke-linejoin="round">
+                        <path d="m12 3 9 5v8l-9 5-9-5V8l9-5Z" />
+                        <path d="m3.5 8.2 8.5 5 8.5-5M12 13v8" />
+                    </svg>
+                </div>
+
+                <div>
+                    <div class="brand-name">Deployment Console</div>
+                    <div class="brand-sub">Application Overview</div>
+                </div>
+            </div>
+
+            <div class="status">
+                <span class="dot"></span>
+                <span id="header-status">Loading...</span>
+            </div>
+        </header>
+
+        <section class="panel">
+            <div class="eyebrow">DEPLOYMENT OVERVIEW</div>
+
+            <h1 id="page-title">Application Environment</h1>
+
+            <p class="description" id="description">
+                Loading application information...
+            </p>
+
+            <div class="divider"></div>
+
+            <div class="deployment">
+                <div>
+                    <div class="label">ACTIVE VERSION</div>
+
+                    <div class="version">
+                        Version <span id="app-version">Loading...</span>
+                    </div>
+
+                    <div class="environment">
+                        <span class="env-dot"></span>
+                        <span id="app-environment">Loading...</span>
+                    </div>
+                </div>
+
+                <div class="stable" id="app-status">Loading...</div>
+            </div>
+
+            <div class="divider"></div>
+
+            <h2 class="section-title">Runtime information</h2>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-label">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8" stroke-linecap="round">
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M12 7v5l3 2" />
+                        </svg>
+                        SERVER TIME
+                    </div>
+                    <div class="info-value" id="server-time">Loading...</div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-label">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="4" y="4" width="16" height="6" rx="2" />
+                            <rect x="4" y="14" width="16" height="6" rx="2" />
+                            <path d="M8 7h.01M8 17h.01" />
+                        </svg>
+                        HOSTNAME
+                    </div>
+                    <div class="info-value" id="hostname">Loading...</div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-label">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="13" rx="2" />
+                            <path d="M8 21h8M12 17v4" />
+                        </svg>
+                        PLATFORM
+                    </div>
+                    <div class="info-value" id="platform">Loading...</div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-label">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 3 3 8l9 5 9-5-9-5Z" />
+                            <path d="m3 12 9 5 9-5M3 16l9 5 9-5" />
+                        </svg>
+                        NODE.JS VERSION
+                    </div>
+                    <div class="info-value" id="node-version">Loading...</div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <span>Blue-Green Deployment Demo</span>
+            <span id="footer-version">Loading...</span>
+        </footer>
+    </main>
+
+    <script>
+        const fields = [
+            'header-status',
+            'app-version',
+            'app-environment',
+            'app-status',
+            'server-time',
+            'hostname',
+            'platform',
+            'node-version',
+            'footer-version'
+        ];
+
+        function showError() {
+            fields.forEach(id => {
+                document.getElementById(id).textContent = 'Unavailable';
+            });
+
+            document.getElementById('page-title').textContent =
+                'Application Unavailable';
+
+            document.getElementById('description').textContent =
+                'Unable to retrieve application information from the server.';
+        }
+
+        fetch('/api/info')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch server information');
+                }
+
+                return response.json();
+            })
+            .then(data => {
+                document.getElementById('app-version').textContent =
+                    data.version;
+
+                document.getElementById('app-environment').textContent =
+                    `${data.environment.toUpperCase()} ENVIRONMENT`;
+
+                document.getElementById('app-status').textContent =
+                    data.status.toUpperCase();
+
+                document.getElementById('header-status').textContent =
+                    data.status.toUpperCase();
+
+                document.getElementById('server-time').textContent =
+                    data.timestamp;
+
+                document.getElementById('hostname').textContent =
+                    data.hostname;
+
+                document.getElementById('platform').textContent =
+                    data.platform;
+
+                document.getElementById('node-version').textContent =
+                    data.nodeVersion;
+
+                document.getElementById('page-title').textContent =
+                    `${data.environment.charAt(0).toUpperCase()}${data.environment.slice(1)} Environment`;
+
+                document.getElementById('description').textContent =
+                    `Application version ${data.version} running in the ${data.environment} environment.`;
+
+                document.getElementById('footer-version').textContent =
+                    `Application v${data.version}`;
+            })
+            .catch(error => {
+                console.error('Error fetching application info:', error);
+                showError();
+            });
+    </script>
+</body>
+
+</html>
