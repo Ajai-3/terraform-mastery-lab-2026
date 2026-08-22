@@ -67,8 +67,8 @@ Key hands-on mini projects built and deployed using Terraform:
 - [015 - VPC and Peering (Mini Project 2) 🚀](./docs/Module%20-%202%20AWS%20resources%20using%20Terraform/015%20-%20VPC%20and%20Peering%20%28Mini%20Project%202%29/015-vpc-and-peering.md)
 - [016 - AWS IAM User Management (Mini Project 3) 🚀](./docs/Module%20-%202%20AWS%20resources%20using%20Terraform/016%20-%20AWS%20IAM%20User%20Management%20%28Mini%20Project%203%29/016-aws-iam-user-management.md)
 - [017 - AWS Elastic Beanstalk Blue-Green Deployment Demo (Mini Project 4) 🚀](./docs/Module%20-%202%20AWS%20resources%20using%20Terraform/017%20-%20AWS%20Elastic%20Beanstalk%20Blue-Green%20Deployment%20Demo%20%28Mini%20Project%204%29/017-aws-elastic-beanstalk-blue-green-deployment.md)
-- [018 - Simple Image Processor - Backend Only (Mini Project 5)](./docs/Module%20-%202%20AWS%20resources%20using%20Terraform/018%20-%20Simple%20Image%20Processor%20-%20Backend%20Only%20%28Mini%20Project%205%29/018-simple-image-processor.md)
-- [019 - Terraform Provisioners Demo (Mini Project 6)](./docs/Module%20-%202%20AWS%20resources%20using%20Terraform/019%20-%20Terraform%20Provisioners%20Demo%20%28Mini%20Project%206%29/019-terraform-provisioners-demo.md)
+- [018 - Simple Image Processor - Backend Only (Mini Project 5) 🚀](./docs/Module%20-%202%20AWS%20resources%20using%20Terraform/018%20-%20Simple%20Image%20Processor%20-%20Backend%20Only%20%28Mini%20Project%205%29/018-simple-image-processor.md)
+- [019 - Terraform Provisioners Demo (Mini Project 6) 🚀](./docs/Module%20-%202%20AWS%20resources%20using%20Terraform/019%20-%20Terraform%20Provisioners%20Demo%20%28Mini%20Project%206%29/019-terraform-provisioners-demo.md)
 
 ### Module 3: Advanced Concepts
 
